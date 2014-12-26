@@ -1,4 +1,4 @@
-package tpjava;
+package dijkstra;
 
 
 import java.util.ArrayList;

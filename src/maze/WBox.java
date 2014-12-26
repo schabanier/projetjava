@@ -1,4 +1,4 @@
-package tpjava;
+package maze;
 import java.io.PrintWriter ;
 
 public class WBox extends MBox {

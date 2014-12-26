@@ -1,4 +1,5 @@
-package tpjava;
+package dijkstra;
+
 
 public interface PiInterface
 {

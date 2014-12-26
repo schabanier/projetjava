@@ -1,6 +1,8 @@
-package tpjava;
+package maze;
 
 import java.io.PrintWriter;
+
+import dijkstra.VertexInterface;
 
 public abstract class MBox 
 	implements VertexInterface 

@@ -1,8 +1,13 @@
-package tpjava;
+package dijkstra;
 
 import java.util.ArrayList;
 
-public class Dijkstra {
+public class Dijkstra 
+{
+	public static PreviousInterface dijkstra(GraphInterface g, VertexInterface r)
+	{
+		return dijkstra(g,r,new ASet(),new Pi(),new Previous()) ;
+	}
 
 	private static PreviousInterface dijkstra(GraphInterface g, 
 											  VertexInterface r,

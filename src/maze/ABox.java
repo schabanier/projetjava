@@ -1,15 +1,15 @@
-package tpjava;
+package maze;
 import java.io.PrintWriter;
 
-public class EBox extends MBox {
+public class ABox extends MBox {
 
-	public EBox(Maze maze,int line, int column)
+	public ABox(Maze maze,int line, int column)
 	{
 		super(maze,line,column);
 	}
 	
 	public final void writeCharTo(PrintWriter pw)
 	{
-		pw.print('E');
+		pw.print('A');
 	}
 }
