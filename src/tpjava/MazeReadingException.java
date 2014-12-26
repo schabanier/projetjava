@@ -6,6 +6,6 @@ public class MazeReadingException extends Exception {
 	
 	public MazeReadingException(String fileName, int lineNo, String errorMsg)
 	{
-		super("Error while reading Maze in" + fileName + "(" + lineNo + "(" + errorMsg) ;
+		super("Error while reading Maze in" + fileName + "(" + lineNo + ")" + errorMsg) ;
 	}
 }

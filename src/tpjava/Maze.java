@@ -7,7 +7,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
-public class Maze implements GraphInterface {
+public class Maze 
+	implements GraphInterface 
+{
 
 	public static final int WIDTH = 10 ;
 	public static final int HEIGHT = 10 ;
@@ -15,14 +17,15 @@ public class Maze implements GraphInterface {
 	private final MBox[][] boxes ;
 	
 	public Maze()
-	{ boxes = new MBox[HEIGHT][WIDTH] ;
+	{ 
+		boxes = new MBox[HEIGHT][WIDTH] ;
 	
-	/** création d'une structure matricielle pour le labyrtinth */
+	/** creation d'une structure matricielle pour le labyrtinthe */
 	}
 	
 	public final MBox getBox(int line, int column)
 	{
-		/** retourne une case à partir de ses coordonnées */ 
+		/** retourne une case a partir de ses coordonnees */ 
 		
 		return boxes[line][column] ;
 	}
@@ -36,19 +39,18 @@ public class Maze implements GraphInterface {
 			for (int column = 0; column < WIDTH ; column ++)
 				allVertices.add(theLine[column]);
 		}
+		
 		return allVertices ;
-
 		
 	}
 
 	public ArrayList<VertexInterface> getSuccessors(VertexInterface vertex)
 	{
-		ArrayList<VertexInterface> successors 
-		= new ArrayList<VertexInterface>() ;
+		ArrayList<VertexInterface> successors = new ArrayList<VertexInterface>() ;
 		
 		MBox box = (MBox)vertex ; //cast
 		
-		int line =box.getLine();
+		int line = box.getLine();
 		int column = box.getColumn();
 		
 		if(line>0) { //top neighbor
@@ -134,7 +136,8 @@ public class Maze implements GraphInterface {
 			if(br != null)
 				try { br.close() ; } catch (Exception e) {} ;
 		}
-		
+	}
+	
 		public final void saveToTextFile(String fileName)
 		{
 			PrintWriter pw = null ;
@@ -161,5 +164,5 @@ public class Maze implements GraphInterface {
 					try { pw.close(); } catch (Exception e) {} ;
 			}
 		}
-	}
 }
+
