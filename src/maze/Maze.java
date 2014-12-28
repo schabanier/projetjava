@@ -1,5 +1,8 @@
 package maze;
 
+import java.awt.Graphics;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -9,9 +12,11 @@ import java.util.ArrayList;
 
 import dijkstra.GraphInterface;
 import dijkstra.VertexInterface;
+import fr.enst.inf103.ui.MazeView;
+import fr.enst.inf103.ui.MazeViewSource;
 
 public class Maze 
-	implements GraphInterface 
+	implements GraphInterface, MazeViewSource
 {
 
 	public static final int WIDTH = 10 ;
@@ -49,6 +54,7 @@ public class Maze
 
 	public ArrayList<VertexInterface> getSuccessors(VertexInterface vertex)
 	{
+		/** retourne les voisins du sommet */
 		ArrayList<VertexInterface> successors = new ArrayList<VertexInterface>() ;
 		
 		MBox box = (MBox)vertex ; //cast
@@ -131,7 +137,7 @@ public class Maze
 		} catch (IOException e) {
 			System.err.println("Error classe Maze, initFromTextFile: read error on file  " + fileName) ;
 		} catch(Exception e) {
-			System.err.println("Erro: unknown error.");
+			System.err.println("Error: unknown error.");
 			e.printStackTrace(System.err);
 		} finally {
 			if (fr != null)
@@ -167,5 +173,68 @@ public class Maze
 					try { pw.close(); } catch (Exception e) {} ;
 			}
 		}
+		
+	public final int getWidth()
+	{
+		return WIDTH;
+	}
+	
+	public final int getHeight()
+	{
+		return HEIGHT;
+	}
+	
+	public final String getSymbolForBox( int row, int column)
+	{
+		/** retourne le symbole de la case: * E W A ou D */
+	
+		MBox box = getBox(row,column);
+		return box.getType();
+	}
+	
+	public void setSymbolForBox( int row, int column, String symbol)
+	{
+		/** change le symbole de la case */
+		String S = getSymbolForBox( row , column);
+		if (!symbol.equals(S))
+		{
+			if (symbol.equals("A")) 
+				boxes[row][column] = new ABox(this, row , column); 
+			if (symbol.equals("D")) 
+				boxes[row][column] = new DBox(this, row , column); 
+			if (symbol.equals("E")) 
+				boxes[row][column] = new EBox(this, row , column); 
+			if (symbol.equals("W")) 
+				boxes[row][column] = new WBox(this, row , column); 
+					}
+		
+	}
+	
+	public boolean drawMaze(Graphics g, MazeView mazeView)
+	{
+		/** dessine le labyrinthe, retourne true */
+		return true;
+	}
+	
+	public boolean handleClick(MouseEvent e, MazeView mazeView)
+	{
+		/** gere les clicks sur la souris et retourne true */
+		// si clic gauche sur une case E, alors appeler setSymbolForBox(row, column, W)
+		// si clic gauche sur une case W, alors appeler setSymbolForBox(row, column, E)
+		// si clic gauche + shift (du coup avec handleKey) sur une case differente de D, alors appeler setSymbolForBox(row, column, D)
+		// si clic gauche + shift (du coup avec handleKey) sur une case D, alors appeler setSymbolForBox(row, column, A)
+
+		if (e.getButton()==
+				
+		return true;
+	}
+	
+	public boolean handleKey(KeyEvent e, MazeView mazeView)
+	{
+		/** gere le relachement de la souris et retourne true */
+		if (e.getKeyCode()==X) // X-> keycode associe a shift?... 
+			// 
+		return true;
+	}
 }
 

@@ -44,4 +44,6 @@ public abstract class MBox
 		return true ;
 	}
 	
+	public abstract String getType();
+	
 }

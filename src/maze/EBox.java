@@ -12,4 +12,9 @@ public class EBox extends MBox {
 	{
 		pw.print('E');
 	}
+	
+	public final String getType()
+	{
+		return "E";
+	}
 }

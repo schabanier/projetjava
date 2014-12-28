@@ -1,5 +1,6 @@
 package tpjava;
 
+import fr.enst.inf103.ui.MazeWindow;
 import maze.Maze;
 
 public class MainTest {
@@ -10,6 +11,8 @@ public class MainTest {
 		
 		maze.initFromTextFile("data/labyrinthe.txt") ;
 		maze.saveToTextFile("data/labyrinthe2.txt") ;
+		
+		MazeWindow mazeWindow = new MazeWindow("My awesome labyrinth", mazeController) ;
 	}
 	
 

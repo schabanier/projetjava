@@ -14,4 +14,9 @@ public class DBox extends MBox {
 	{
 		pw.print('D');
 	}
+	
+	public final String getType()
+	{
+		return "D";
+	}
 }

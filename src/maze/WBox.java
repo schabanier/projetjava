@@ -19,5 +19,10 @@ public class WBox extends MBox {
 	{
 		pw.print('W');
 	}
+	
+	public final String getType()
+	{
+		return "W";
+	}
 }
 
