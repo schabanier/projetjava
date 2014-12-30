@@ -224,7 +224,7 @@ public class Maze
 		// si clic gauche + shift (du coup avec handleKey) sur une case differente de D, alors appeler setSymbolForBox(row, column, D)
 		// si clic gauche + shift (du coup avec handleKey) sur une case D, alors appeler setSymbolForBox(row, column, A)
 
-		if (e.getButton()== X1)
+		// if (e.getButton()== X1)
 				
 		return true;
 	}
@@ -232,7 +232,7 @@ public class Maze
 	public boolean handleKey(KeyEvent e, MazeView mazeView)
 	{
 		/** gere le relachement de la souris et retourne true */
-		if (e.getKeyEvent==X) // X-> keycode associe a shift?... 
+		// if (e.getKeyEvent==X) // X-> keycode associe a shift?... 
 			// 
 		return true;
 	}
