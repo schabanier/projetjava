@@ -212,8 +212,9 @@ public class Maze
 	
 	public boolean drawMaze(Graphics g, MazeView mazeView)
 	{
-		/** dessine le labyrinthe, retourne true */
-		return true;
+		/** dessine le labyrinthe, retourne false */
+		//g = new Graphics();
+		return false;
 	}
 	
 	public boolean handleClick(MouseEvent e, MazeView mazeView)
@@ -236,5 +237,7 @@ public class Maze
 			// 
 		return true;
 	}
+	
+	
 }
 
