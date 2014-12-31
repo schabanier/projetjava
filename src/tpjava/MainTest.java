@@ -1,5 +1,6 @@
 package tpjava;
 
+
 import fr.enst.inf103.ui.MazeViewController;
 import fr.enst.inf103.ui.MazeWindow;
 import maze.MazeController;

@@ -1,6 +1,7 @@
 package maze;
 
 import java.awt.Graphics;
+
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
@@ -208,6 +209,13 @@ public class Maze
 				boxes[row][column] = new WBox(this, row , column); 
 					}
 		
+	}
+	
+	public Graphics getGraphics() 
+	{ 
+		/** retourne le graphique du labyrinthe */
+		
+		return null; 
 	}
 	
 	public boolean drawMaze(Graphics g, MazeView mazeView)

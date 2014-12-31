@@ -15,7 +15,7 @@ public class MazeController
 	
 	public void calculateShortestPath()
 	{
-		/** Calcule le plus court chemin entre le dŽpart et l'arrivee */
+		/** Calcule le plus court chemin entre le dï¿½part et l'arrivee */
 		//utiliser dijkstra
 		
 	}
@@ -23,8 +23,10 @@ public class MazeController
 	public MazeViewSource getMazeViewSource()
 	{
 		/** Obtient le MazeViewSource du labyrinthe */
+		MazeViewSource maze = new Maze (); // appeler le laby actuel 
+		MazeView mazeView = new MazeView(maze) ;
 		
-		return null;
+		return mazeView.getMazeViewSource() ;
 		
 	}
 	
@@ -38,6 +40,7 @@ public class MazeController
 		//Graphics g = image.getGraphics();
 		
 		maze.drawMaze(null, mazeView);
+		
 		return mazeView.getMazeViewSource();
 	}
 	
