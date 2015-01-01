@@ -1,8 +1,13 @@
 package maze;
 
+import maze.MBox;
+import dijkstra.VertexInterface;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+
+import dijkstra.Dijkstra;
 import fr.enst.inf103.ui.MazeViewController;
-
-
 import fr.enst.inf103.ui.MazeViewSource;
 
 public class MazeController 
@@ -13,8 +18,39 @@ public class MazeController
 	
 	public void calculateShortestPath()
 	{
-		/** Calcule le plus court chemin entre le d�part et l'arrivee */
-	}
+		/** Calcule le plus court chemin entre le d�part et l'arrivee */
+		
+		MBox begin = maze.getdeparture();
+		MBox end = maze.getarrival();
+	    ArrayList<VertexInterface> solvedlist = Dijkstra.dijkstra(maze, begin).getShortestPathTo(end);
+	    Iterator<VertexInterface> verticesIterator = maze.getAllVertices().iterator();
+	    
+	    // Rétablis en type " E " les cases d'un ancien chemin lors de la demande de tracé d'un nouveau chemin 
+	    
+	    for (int i=0; i<10;i++){
+	    	for (int j=0; j<10; j++){
+	    		if (maze.getBox(i, j).getLabel() == "*"){
+	    			maze.setSymbolForBox(i, j, "E");
+	    		}
+	    	}
+	    }
+	    
+	    
+	    // Affiche en jaune les cases du plus court chemin 
+	    
+		while (verticesIterator.hasNext()){
+			VertexInterface vertex = verticesIterator.next();
+			if (solvedlist.contains(vertex)){
+				MBox m = (MBox) vertex;
+			    maze.setSymbolForBox(m.getLine(), m.getColumn(), "*");	
+				}
+			
+			}
+		 maze.setSymbolForBox(begin.getLine(),begin.getColumn(),"D");
+		}
+			
+		
+	
 	
 	public MazeViewSource getMazeViewSource()
 	{
