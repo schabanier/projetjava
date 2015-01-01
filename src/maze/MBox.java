@@ -1,5 +1,7 @@
 package maze;
 
+import MBox;
+
 import java.io.PrintWriter;
 
 import dijkstra.VertexInterface;
@@ -45,5 +47,6 @@ public abstract class MBox
 	}
 	
 	public abstract String getType();
+
 	
 }

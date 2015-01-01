@@ -1,18 +1,22 @@
 package maze;
 
+import java.io.PrintWriter;
+
 	public class PathBox extends MBox{
 		
 		public PathBox(Maze maze,int line, int column){
 			
 			super(maze, line, column);
-			type = "*";
+			;
 		}
 
-	public String getType() {
+		public final void writeCharTo(PrintWriter pw)
+		{
+			pw.print('*');
+		}
 		
-				
-				return null ;
-		
+		public final String getType()
+		{
+			return "*";
+		}
 	}
-
-}

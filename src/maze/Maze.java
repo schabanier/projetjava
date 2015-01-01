@@ -1,7 +1,6 @@
 package maze;
 
 import java.awt.Graphics;
-
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.io.BufferedReader;
@@ -248,6 +247,41 @@ public class Maze
 		return false;
 	}
 	
+public MBox getdeparture() {
+	
+	/** trouve la case de départ */
+		
+		MBox departure = null;
+		for (int i = 0; i<10;i++){
+			for (int j=0 ; j<10 ; j++){
+			
+				if (boxes[i][j].getLabel() == "D"){
+					departure = boxes[i][j];
+				}
+			}
+		}
+	
+		return departure;
+	}
+
+
+
+	public MBox getarrival() {
+		
+		/** trouve la case d'arrivée */
+		
+		MBox arrival = null;
+		for (int i = 0; i<10;i++){
+			for (int j=0 ; j<10 ; j++){
+				
+				if (boxes[i][j].getLabel() == "A"){
+					arrival = boxes[i][j];
+				}
+			}
+		}
+		
+		return arrival;
+	}
 	
 }
 
