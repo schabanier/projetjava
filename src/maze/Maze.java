@@ -216,7 +216,9 @@ public class Maze
 			if (symbol.equals("E")) 
 				boxes[row][column] = new EBox(this, row , column); 
 			if (symbol.equals("W")) 
-				boxes[row][column] = new WBox(this, row , column); 
+				boxes[row][column] = new WBox(this, row , column);
+			if (symbol.equals("*")) 
+				boxes[row][column] = new PathBox(this, row , column); 
 			else System.out.println("symbole inconnu");	// mettre une exception?
 			}
 		
@@ -231,25 +233,25 @@ public class Maze
 	
 	public boolean drawMaze(Graphics g, MazeView mazeView)
 	{
-		/** dessine le labyrinthe, retourne false */
+		/** dessine le labyrinthe, retourne false pour utiliser l'implementation par defaut */
 		return false;
 	}
 	
 	public boolean handleClick(MouseEvent e, MazeView mazeView)
 	{
-		/** gere les clicks sur la souris et retourne true */
+		/** gere les clicks sur la souris, retourne false pour utiliser l'implementation par defaut */
 		return false;
 	}
 	
 	public boolean handleKey(KeyEvent e, MazeView mazeView)
 	{
-		/** gere le relachement de la souris et retourne true */
+		/** gere le relachement de la souris, retourne false pour utiliser l'implementation par defaut */
 		return false;
 	}
 	
-public MBox getdeparture() {
+	public MBox getdeparture() {
 	
-	/** trouve la case de départ */
+		/** trouve la case de depart */
 		
 		MBox departure = null;
 		for (int i = 0; i<10;i++){
@@ -268,7 +270,7 @@ public MBox getdeparture() {
 
 	public MBox getarrival() {
 		
-		/** trouve la case d'arrivée */
+		/** trouve la case d'arrivee */
 		
 		MBox arrival = null;
 		for (int i = 0; i<10;i++){

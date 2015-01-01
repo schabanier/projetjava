@@ -1,7 +1,5 @@
 package maze;
 
-import MBox;
-
 import java.io.PrintWriter;
 
 import dijkstra.VertexInterface;
