@@ -31,6 +31,17 @@ public class Maze
 	/** creation d'une structure matricielle pour le labyrtinthe */
 	}
 	
+	public void initMaze(){
+		for (int i=0; i<10 ; i++){
+			for (int j=0; j<10 ; j++){
+				if (i==0 || i==9 || j==0 || j==9)
+					boxes[i][j] = new WBox(this,i,j);
+				else 
+					boxes[i][j] = new EBox(this,i,j);
+			}
+		}
+	}
+	
 	public final MBox getBox(int line, int column)
 	{
 		/** retourne une case a partir de ses coordonnees */ 
@@ -206,36 +217,27 @@ public class Maze
 				boxes[row][column] = new EBox(this, row , column); 
 			if (symbol.equals("W")) 
 				boxes[row][column] = new WBox(this, row , column); 
-					}
+			else System.out.println("symbole inconnu");	// mettre une exception?
+			}
 		
 	}
 	
 	public boolean drawMaze(Graphics g, MazeView mazeView)
 	{
 		/** dessine le labyrinthe, retourne false */
-		//g = new Graphics();
 		return false;
 	}
 	
 	public boolean handleClick(MouseEvent e, MazeView mazeView)
 	{
 		/** gere les clicks sur la souris et retourne true */
-		// si clic gauche sur une case E, alors appeler setSymbolForBox(row, column, W)
-		// si clic gauche sur une case W, alors appeler setSymbolForBox(row, column, E)
-		// si clic gauche + shift (du coup avec handleKey) sur une case differente de D, alors appeler setSymbolForBox(row, column, D)
-		// si clic gauche + shift (du coup avec handleKey) sur une case D, alors appeler setSymbolForBox(row, column, A)
-
-		// if (e.getButton()== X1)
-				
-		return true;
+		return false;
 	}
 	
 	public boolean handleKey(KeyEvent e, MazeView mazeView)
 	{
 		/** gere le relachement de la souris et retourne true */
-		// if (e.getKeyEvent==X) // X-> keycode associe a shift?... 
-			// 
-		return true;
+		return false;
 	}
 	
 	

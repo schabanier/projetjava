@@ -1,10 +1,7 @@
 package maze;
 
 import fr.enst.inf103.ui.MazeViewController;
-import fr.enst.inf103.ui.MazeView;
 
-import java.awt.Graphics;
-import java.awt.image.BufferedImage;
 
 import fr.enst.inf103.ui.MazeViewSource;
 
@@ -12,6 +9,7 @@ public class MazeController
 	implements MazeViewController
 {
 	
+	Maze maze = new Maze();
 	
 	public void calculateShortestPath()
 	{
@@ -24,33 +22,25 @@ public class MazeController
 	{
 		/** Obtient le MazeViewSource du labyrinthe */
 		
-		return null;
+		return (MazeViewSource)maze;
 		
 	}
 	
 	public MazeViewSource newMaze()
 	{
 		/** cree un nouveau labyrinthe */
-		MazeViewSource maze = new Maze();
-		MazeView mazeView = new MazeView(maze);
+
+		maze.initMaze();
 		
-		//BufferedImage image = new BufferedImage(10, 10, BufferedImage.TYPE_INT_ARGB);
-		//Graphics g = image.getGraphics();
-		
-		maze.drawMaze(null, mazeView);
-		return mazeView.getMazeViewSource();
+		return (MazeViewSource)maze;
 	}
 	
 	public MazeViewSource openMaze(String fileName)
 	{
 		/** ouvre un labyrinthe a partir de fileName */
 		
-		Maze maze = new Maze();
 		maze.initFromTextFile(fileName); 
-		//definir g
-		MazeView mazeView = new MazeView(maze);
-		maze.drawMaze(null, mazeView);
-		return maze;
+		return (MazeViewSource)maze;
 		
 		
 		
@@ -60,7 +50,7 @@ public class MazeController
 	{
 		/** sauvegarde le labyrinthe sous fileName */
 		
-		//maze.saveToTextFile(fileName); // X -> le labyrinthe actuel
+		maze.saveToTextFile(fileName); 
 	
 	}
 }
