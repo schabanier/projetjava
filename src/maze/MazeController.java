@@ -19,9 +19,7 @@ public class MazeController
 	public MazeViewSource getMazeViewSource()
 	{
 		/** Obtient le MazeViewSource du labyrinthe */
-		
 		return (MazeViewSource)maze;
-		
 	}
 	
 	public MazeViewSource newMaze()
@@ -29,7 +27,6 @@ public class MazeController
 		/** cree un nouveau labyrinthe */
 
 		maze.initMaze();
-		
 		return (MazeViewSource)maze;
 	}
 	
@@ -38,10 +35,7 @@ public class MazeController
 		/** ouvre un labyrinthe a partir de fileName */
 		
 		maze.initFromTextFile(fileName); 
-		return (MazeViewSource)maze;
-		
-		
-		
+		return (MazeViewSource)maze;	
 	}
 	
 	public void saveMazeAs(String fileName)
