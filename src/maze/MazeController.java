@@ -14,8 +14,6 @@ public class MazeController
 	public void calculateShortestPath()
 	{
 		/** Calcule le plus court chemin entre le départ et l'arrivee */
-		//utiliser dijkstra
-		
 	}
 	
 	public MazeViewSource getMazeViewSource()
