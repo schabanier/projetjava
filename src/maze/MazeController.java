@@ -20,33 +20,45 @@ public class MazeController
 	{
 		/** Calcule le plus court chemin entre le depart et l'arrivee */
 		
-		MBox begin = maze.getdeparture();
-		MBox end = maze.getarrival();
-	    ArrayList<VertexInterface> solvedList = Dijkstra.dijkstra(maze, begin).getShortestPathTo(end);
-	    Iterator<VertexInterface> solvedListIterator = solvedList.iterator();
-	    
-	    // Retablis en type " E " les cases d'un ancien chemin lors de la demande de trace d'un nouveau chemin 
-	    
-	    for (int i=0; i<10;i++){
-	    	for (int j=0; j<10; j++){
-	    		if (maze.getBox(i, j).getType() == "*"){
-	    			maze.setSymbolForBox(i, j, "E");
+		if (maze.getDeparture()!=null && maze.getArrival()!=null){
+		
+			MBox begin = maze.getDeparture();
+			MBox end = maze.getArrival();
+			System.out.println(begin);
+			ArrayList<VertexInterface> solvedList = Dijkstra.dijkstra(maze, begin).getShortestPathTo(end);
+			Iterator<VertexInterface> solvedListIterator = solvedList.iterator();
+			
+			// Retablis en type " E " les cases d'un ancien chemin lors de la demande de trace d'un nouveau chemin 
+			
+			for (int i=0; i<10;i++){
+				for (int j=0; j<10; j++){
+					if (maze.getBox(i, j).getType() == "*"){
+						maze.setSymbolForBox(i, j, "E");
+	    			}
 	    		}
 	    	}
-	    }
-	    
-	    
-	    // Affiche en jaune les cases du plus court chemin 
-	    
-		while (solvedListIterator.hasNext()){
-			VertexInterface vertex = solvedListIterator.next();
-			MBox m = (MBox) vertex;
-			maze.setSymbolForBox(m.getLine(), m.getColumn(), "*");	
-				
+		
+			// Affiche en jaune les cases du plus court chemin 
 			
-			}
-		 maze.setSymbolForBox(begin.getLine(),begin.getColumn(),"D");
+			while (solvedListIterator.hasNext()){
+				VertexInterface vertex = solvedListIterator.next();
+				MBox m = (MBox) vertex;
+				maze.setSymbolForBox(m.getLine(), m.getColumn(), "*");	
+				}
 		}
+	    
+	    /** Permet d'effacer le chemin en rappuyant sur solve */
+		
+		else{ 
+			for (int i=0; i<10;i++){
+				for (int j=0; j<10; j++){
+					if (maze.getBox(i, j).getType() == "*"){
+						maze.setSymbolForBox(i, j, "E");
+	    			}
+	    		}
+	    	}
+		}	 
+	}
 			
 		
 	

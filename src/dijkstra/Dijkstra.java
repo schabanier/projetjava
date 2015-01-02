@@ -23,7 +23,7 @@ public class Dijkstra
 		
 		for(VertexInterface x : allVertices)
 			pi.setValue(x, Integer.MAX_VALUE);
-		pi.setValue(r, 0); ;
+		pi.setValue(r, 0); 
 		
 		VertexInterface pivot = r ;
 		int piPivot = 0 ;

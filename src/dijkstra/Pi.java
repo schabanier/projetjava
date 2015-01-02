@@ -13,7 +13,7 @@ public class Pi
 	}
 	
 	public void setValue(VertexInterface vertex, int value)
-	{
+	{	
 		table.put(vertex, new Integer(value));
 	}
 	

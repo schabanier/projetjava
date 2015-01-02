@@ -203,12 +203,10 @@ public class Maze
 		return box.getType();
 	}
 	
-	public void setSymbolForBox( int row, int column, String symbol)
+	public final void setSymbolForBox( int row, int column, String symbol)
 	{
 		/** change le symbole de la case */
-		String S = getSymbolForBox( row , column);
-		if (!symbol.equals(S))
-		{
+		
 			if (symbol.equals("A")) 
 				boxes[row][column] = new ABox(this, row , column); 
 			if (symbol.equals("D")) 
@@ -218,18 +216,9 @@ public class Maze
 			if (symbol.equals("W")) 
 				boxes[row][column] = new WBox(this, row , column);
 			if (symbol.equals("*")) 
-				boxes[row][column] = new PathBox(this, row , column); 
-			else System.out.println("symbole inconnu");	// mettre une exception?
-			}
-		
+				boxes[row][column] = new PathBox(this, row , column); 	
 	}
 	
-	public Graphics getGraphics() 
-	{ 
-		/** retourne le graphique du labyrinthe */
-		
-		return null; 
-	}
 	
 	public boolean drawMaze(Graphics g, MazeView mazeView)
 	{
@@ -249,15 +238,15 @@ public class Maze
 		return false;
 	}
 	
-	public MBox getdeparture() {
+	public final MBox getDeparture() {
 	
-		/** trouve la case de depart */
+		/** trouve et renvoit la case de depart */
 		
 		MBox departure = null;
 		for (int i = 0; i<10;i++){
 			for (int j=0 ; j<10 ; j++){
 			
-				if (boxes[i][j].getLabel() == "D"){
+				if (boxes[i][j].getType() == "D"){
 					departure = boxes[i][j];
 				}
 			}
@@ -268,15 +257,15 @@ public class Maze
 
 
 
-	public MBox getarrival() {
+	public final MBox getArrival() {
 		
-		/** trouve la case d'arrivee */
+		/** trouve et renvoit la case d'arrivee */
 		
 		MBox arrival = null;
 		for (int i = 0; i<10;i++){
 			for (int j=0 ; j<10 ; j++){
 				
-				if (boxes[i][j].getLabel() == "A"){
+				if (boxes[i][j].getType() == "A"){
 					arrival = boxes[i][j];
 				}
 			}
