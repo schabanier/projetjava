@@ -128,13 +128,15 @@ public class Maze
 			for(int colNo = 0 ; colNo < WIDTH; colNo++) {
 				switch (line.charAt(colNo)) {
 				case 'D' :
-					boxes[lineNo][colNo] = new DBox(this, lineNo,colNo); break ;
+					boxes[lineNo][colNo] = new DBox(this, lineNo, colNo); break ;
 				case 'A' :
-					boxes[lineNo][colNo]= new ABox(this, lineNo,colNo); break ;
+					boxes[lineNo][colNo]= new ABox(this, lineNo, colNo); break ;
 				case 'W' :
-					boxes[lineNo][colNo] = new WBox(this,lineNo,colNo); break ;
+					boxes[lineNo][colNo] = new WBox(this,lineNo, colNo); break ;
 				case 'E' :
-					boxes[lineNo][colNo] = new EBox(this, lineNo,colNo); break ;
+					boxes[lineNo][colNo] = new EBox(this, lineNo, colNo); break ;
+				case '*' :
+					boxes[lineNo][colNo] = new PathBox(this, lineNo, colNo); break;
 				default :
 					throw new MazeReadingException(fileName, lineNo, "unknown char'" + boxes[lineNo][colNo] + "'") ;
 				}
