@@ -20,8 +20,10 @@ public class MazeController
 	{
 		/** Calcule le plus court chemin entre le depart et l'arrivee */
 		
-		if (maze.getDeparture()!=null && maze.getArrival()!=null){
+		//bloc try catch pour gerer les PathException liees a un mauvais nombre de cases depart et arrivee
 		
+		try{
+			
 			MBox begin = maze.getDeparture();
 			MBox end = maze.getArrival();
 			System.out.println(begin);
@@ -45,19 +47,25 @@ public class MazeController
 				MBox m = (MBox) vertex;
 				maze.setSymbolForBox(m.getLine(), m.getColumn(), "*");	
 				}
-		}
-	    
-	    /** Permet d'effacer le chemin en rappuyant sur solve */
 		
-		else{ 
+			
+		} catch( PathException e) {
+			
+			//boucle for qui permet d effacer le chemin en rappuyant sur solve
+			int compteur = 0;
 			for (int i=0; i<10;i++){
 				for (int j=0; j<10; j++){
 					if (maze.getBox(i, j).getType() == "*"){
 						maze.setSymbolForBox(i, j, "E");
+						compteur = compteur + 1;
 	    			}
 	    		}
 	    	}
-		}	 
+			//si aucune case chemin n est presente renvoyer le message d erreur
+			//sinon ne rien faire, la methode a simplement servi a remettre a 0 les cases chemin
+			if (compteur==0)
+				System.err.println(e.getMessage());
+		}
 	}
 			
 		

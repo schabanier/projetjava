@@ -240,38 +240,56 @@ public class Maze
 		return false;
 	}
 	
-	public final MBox getDeparture() {
+	public final MBox getDeparture() 
+		throws PathException
+	{
 	
 		/** trouve et renvoit la case de depart */
 		
 		MBox departure = null;
+		int compteur = 0;
 		for (int i = 0; i<10;i++){
 			for (int j=0 ; j<10 ; j++){
 			
 				if (boxes[i][j].getType() == "D"){
 					departure = boxes[i][j];
+					compteur = compteur +1;
 				}
 			}
 		}
+		
+		if (compteur==0)
+			throw new PathException("you forgot the departure box!");
+		if (compteur>1)
+			throw new PathException("there are " + compteur + " departure boxes");
 	
 		return departure;
 	}
 
 
 
-	public final MBox getArrival() {
+	public final MBox getArrival() 
+		throws PathException
+	{
 		
 		/** trouve et renvoit la case d'arrivee */
 		
 		MBox arrival = null;
+		int compteur = 0;
 		for (int i = 0; i<10;i++){
 			for (int j=0 ; j<10 ; j++){
 				
 				if (boxes[i][j].getType() == "A"){
 					arrival = boxes[i][j];
+					compteur = compteur + 1;
 				}
 			}
 		}
+		
+		if (compteur==0)
+			throw new PathException("you forgot the arrival box!");
+		if (compteur>1) 
+			throw new PathException("there are " + compteur + " arrival boxes");
 		
 		return arrival;
 	}
